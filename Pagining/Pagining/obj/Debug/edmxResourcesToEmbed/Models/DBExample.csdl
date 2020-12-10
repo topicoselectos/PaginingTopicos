@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NorthWindModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="pagining_Result">
+    <Property Name="OrderID" Type="Int32" />
+    <Property Name="ShipName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+  </ComplexType>
+  <EntityContainer Name="NorthWindEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="pagining" IsComposable="true" ReturnType="Collection(NorthWindModel.pagining_Result)">
+      <Parameter Name="pagina" Mode="In" Type="Int32" />
+      <Parameter Name="cantidadregistros" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>
